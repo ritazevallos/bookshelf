@@ -1,0 +1,64 @@
+@import url("//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css");
+
+body { 
+	padding-bottom: 70px; 
+	color:#000000;
+	text-align:left;
+	font-family:palatino linotype, palatino, serif;
+	line-height:1.2;
+}
+
+i {
+    font-size: 0.8em;
+}
+
+.sidebar-container{
+	.affix{
+		top:20px;
+	}
+}
+
+a{
+	color:gray;
+	letter-spacing:-1pt;
+	word-spacing:5pt;
+	font-size:18px;
+	&:active,&:hover{
+		color: Black;
+		text-decoration: none;
+	}
+}
+
+.top{
+	margin-top: 50px;
+	margin-bottom:30px;
+	letter-spacing:-1pt;
+	word-spacing:5pt;
+	font-size:18px;
+}
+
+.sidebar{
+	padding: 20px 20px 100px 0px;
+	border-right:1px solid black;
+	text-align: right;
+	ul{
+		display:block;
+		list-style-type: none;
+		li{
+			padding: 6px 0px 6px 0px;
+		}
+	}
+	width: 150px;
+}
+
+.content{
+}
+
+.nopadding {
+   padding: 0px !important;
+   margin: 0px !important;
+}
+
+.footer{
+	text-align:right;
+}

@@ -1,0 +1,61 @@
+<p>
+	Here's where I keep the things other people have made that I think are worth keeping.
+</p>
+<p>
+	Implementation steps:
+</p>
+<p>
+	<strike>1. No categories. It's just a list of links (no titles) that I can add to with the form at the bottom (but I have to refresh to see it). New things automatically get added at the end.<br />
+	3. Get the title of the website and store it.<br />
+	4. Optionally add a description (text) that can include quotes or a summary.<br />
+	5. Add categories.<br />
+	6. Make things look nice. Have things organized. Make the new category hidden. Have the new link thing be a simpler button. Categories should collapse.<br /></strike>
+	7. Make it look *even* nicer: maker the crosses nice, move the new categories up, add pagination. Add partials.<br />
+	0. Add in all the things I want to have on here! <br />
+	2. Make the form JSON so the added thing appears immediately.<br />
+	6. Add a chrome app.<br />
+	7. Show when a website has been updated.<br />
+</p>
+<p>
+	Things to consider:
+</p>
+<p>
+	I want to both have particular articles as well as blogs that I follow. How to do this?
+</p>
+
+<% @categories.each do |category| %>
+		<div class="categoryTitle">
+			<%= link_to "<i class=\"glyphicon glyphicon-remove\"></i>".html_safe, category, method: :delete%>
+			<%= category.name %>
+			<a data-toggle="collapse" data-target=".shelf" class="collapseButton">
+			<i class="glyphicon glyphicon-chevron-down"></i>
+			</a>
+		</div>
+
+	<div class="shelf collapse">
+		<div class="borderTop center-block"></div>
+		<% category.books.each do |book| %>
+			<div class="book">
+				<p><%= link_to "<i class=\"glyphicon glyphicon-remove\"></i>".html_safe, [book.category, book], method: :delete%>
+				<%= link_to book.title, book.link %> </p>
+				
+
+				<p><%= book.description %></p>
+			</div>
+			<div class="borderBetween center-block">
+			</div>
+		<% end %>
+		<%= form_for([category, category.books.build]) do |f| %>
+		    <%= f.url_field :link%> 
+		    <%= f.submit "Add", :class => 'submitButton btn btn-default'%>
+		<% end %>
+		<div class="borderBottom center-block "></div>
+	</div>
+<% end %>
+<br><br>
+<%= form_for @category do |f| %>
+  <p>
+    <%= f.text_field :name %>
+    <%= f.submit :class => 'submitButton'%>
+  </p>
+<% end %>

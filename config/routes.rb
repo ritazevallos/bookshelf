@@ -1,4 +1,20 @@
 Website::Application.routes.draw do
+  get "categories/index"
+  get "categories/create"
+  get "categories/delete"
+  root 'static_pages#home'
+
+  resources :categories, except: :show
+  resources :categories do
+    resources :books, except: :show
+  end
+
+  get 'static_pages/about', to: 'static_pages#about', as: 'about'
+  get 'static_pages/art', to: 'static_pages#art', as: 'art'
+  get 'static_pages/coding', to: 'static_pages#coding', as: 'coding'
+  get 'static_pages/writing', to: 'static_pages#writing', as: 'writing'
+  get 'bookshelf', to: 'categories#index', as: 'bookshelf'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

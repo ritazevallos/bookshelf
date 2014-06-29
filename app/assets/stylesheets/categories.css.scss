@@ -1,0 +1,58 @@
+// Place all the styles related to the categories controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+
+.categoryTitle{
+	margin-top: 50px;
+	padding-left: 70px;
+	font-size:2em;
+}
+
+.collapseButton{
+	cursor: pointer; cursor: hand;
+}
+
+.shelf{
+
+	.borderTop,.borderBottom,.borderBetween{
+		border: 1px solid black;
+		height:5px;
+		width:98%;
+	}
+
+	.borderTop,.borderBetween{
+		border-bottom: none;
+	}
+	.borderBottom,.borderBetween{
+		border-top:none;
+	}
+
+	.book{
+		background-color: #F0F0F0;
+		padding:6px;
+		a{
+			color:black;
+			&:active,&:hover{
+				text-decoration:underline;
+			}
+		}
+	}
+
+	form {
+		padding:0;
+		margin:0;
+		display:inline;
+		input{
+			padding:0.75em;
+			width:85%;
+			border:1px solid #999;
+			height:3em;
+			border-radius:3px;
+		}
+		.submitButton{
+			width:14%;
+		}
+	}
+}

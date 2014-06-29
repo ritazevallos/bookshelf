@@ -8,7 +8,35 @@
 </head>
 <body>
 
-<%= yield %>
+<div class="container">
+	<div class="row nopadding">
+		<div class="col-md-6 col-md-offset-1 top">
+			Rita Zevallos. <%= link_to "person", about_path %>/<%= link_to "artmaker", art_path %>/<%= link_to "coder", coding_path %>/<%= link_to "writer", writing_path %>/<%= link_to "collector", bookshelf_path %>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-3 nopadding sidebar-container">
+			<div class="sidebar" data-spy="affix" data-offset-top="80" data-clampedwidth=".col-mid-3">
+				<ul>
+					<li><%= link_to "about", about_path %></li>
+					<li><%= link_to "art", art_path %></li>
+					<li>
+					<%= link_to "coding", coding_path %></li>
+					<li>
+					<%= link_to "writing", writing_path %></li>
+					<li>
+					<%= link_to "bookshelf", bookshelf_path %></li>
+				</ul>
+			</div>
+		</div>
+		<div class="col-md-8 content nopadding" >
+			<%= yield %>
+		</div>
+	</div>
+	<div class="nopadding navbar-fixed-bottom footer">
+		(All content and design by Rita Zevallos.)
+	</div>
+</div>
 
 </body>
 </html>
