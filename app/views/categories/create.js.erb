@@ -1,0 +1,13 @@
+$("#errors").html("");
+<% if @category.errors.any? %>
+  <% @category.errors.full_messages.each do |message| %>
+
+   $("#errors").append($("<li />").html("<%= message.html_safe %>"))
+  alert('error');
+ <% end %>
+<% else %>
+  $("#category_list").html("<%= escape_javascript(render 'list', categories: @categories) %>");
+
+	$('#add_link').show();
+	$('#add_category').hide();
+<% end %>

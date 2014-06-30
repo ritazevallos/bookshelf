@@ -160,6 +160,7 @@ DEPENDENCIES
   coffee-rails (= 4.0.1)
   jbuilder (= 1.0.2)
   jquery-rails (= 3.0.4)
+  json
   metainspector
   nokogiri
   pg (= 0.15.1)

@@ -1,0 +1,11 @@
+$("#errors").html("");
+<% if @book.errors.any? %>
+  <% @book.errors.full_messages.each do |message| %>
+
+   $("#errors").append($("<li />").html("<%= message.html_safe %>"))
+  alert('error');
+ <% end %>
+<% else %>
+  $("#category_list").html("<%= escape_javascript(render 'categories/list', categories: @categories) %>");
+
+<% end %>

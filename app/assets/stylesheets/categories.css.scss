@@ -2,7 +2,11 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
+	ul{
+		list-style-type:none;
+		padding:0;
+		margin:0;
+	}
 
 .categoryTitle{
 	margin-top: 50px;
@@ -55,4 +59,9 @@
 			width:14%;
 		}
 	}
+}
+
+input[type="submit"]::-moz-focus-inner { 
+    border: 0px;
+    padding: 0px;  
 }
