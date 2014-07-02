@@ -1,3 +1,4 @@
+var $category = $('div.categorydiv[data-id="<%= @category %>"]');
 $("#errors").html("");
 <% if @category.errors.any? %>
   <% @category.errors.full_messages.each do |message| %>
@@ -6,8 +7,7 @@ $("#errors").html("");
   alert('error');
  <% end %>
 <% else %>
-  $("#category_list").html("<%= escape_javascript(render 'shared/list', categories: @categories) %>");
-
+	$category.remove();
 	$('#add_link').show();
 	$('#add_category').hide();
 <% end %>

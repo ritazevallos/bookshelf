@@ -1,8 +1,7 @@
 class BooksController < ApplicationController
 	def create
-		@categories = Category.all
 		@category = Category.find(params[:category_id])
-		@book = @category.books.create(book_params)
+		@book = @category.books.build(book_params)
 		@page = MetaInspector.new(@book.link)
 		@book.title = @page.title.strip
 		@book.description = @page.description.strip
@@ -11,7 +10,7 @@ class BooksController < ApplicationController
 	          format.html {redirect_to categories_path, notice: 'Book created.'}
 	    		format.js
 	    	else
-	    		format.html{redirect_to categories_path, notice: 'Error.'}
+	    		format.html{redirect_to categories_path, error: 'Error.'}
 	    		format.js
 	    	end
       	end
@@ -26,8 +25,6 @@ class BooksController < ApplicationController
 	end
 
 	def update
-		@categories = Category.all
-		@books = Book.all
 		@book = Book.find(params[:id])
 		respond_to do |format|
 			if @book.update_attributes(book_edit_params)

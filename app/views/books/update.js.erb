@@ -1,12 +1,11 @@
-alert('if this message appears, that means update is finally working yay!!');
+var $bookdiv = $('div.book[data-id="<%= @book.id %>"]');
+$("#errors").html("")
 
-$("ul.errors").html("")
 <% if @book.errors.any? %>
 	<% @book.errors.full_messages.each do |message| %>
-		$("ul.errors").append($("<li />").html("<%= message.html_safe %>"))
+		$("#errors").append($("<li />").html("<%= message.html_safe %>"))
 	<% end %>
 <% else %>
-	$("#category_list").html("<%= escape_javascript(render 'shared/list', categories: @categories) %>")
-	$(.editform).hide()
-	$(.content).show()
-<% end %>//todo: why the hell is this not being executed? angryface
+	$bookdiv.html("<%= escape_javascript(render 'book', book: @book) %>");
+	$bookdiv.find('.editform').hide();
+<% end %>

@@ -1,12 +1,10 @@
 Website::Application.routes.draw do
-  get "categories/index"
-  get "categories/create"
-  get "categories/delete"
   root 'static_pages#home'
 
-  resources :categories, except: :show
   resources :categories do
-    resources :books, except: :show
+    resources :books do
+      resources :chapters
+    end
   end
 
   get 'static_pages/about', to: 'static_pages#about', as: 'about'
