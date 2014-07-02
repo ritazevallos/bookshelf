@@ -1,3 +1,4 @@
 
-var $category = $('div.categorybooks[data-id="<%= @category.id %>"]');
+var $categorydiv = $('div.categorydiv[data-id="<%= @category.id %>"]');
+var $category = $categorydiv.find('.categorybooks');
 $category.append("<%= escape_javascript(render 'book', book: @book) %>");

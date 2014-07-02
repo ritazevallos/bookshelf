@@ -1,4 +1,4 @@
-<div class="categorydiv">
+<div class="categorydiv" data-id="<%= category.id %>">
 	<div class="categoryTitle">
 		<%= link_to "<i class=\"glyphicon glyphicon-remove\"></i>".html_safe, category, method: :delete, remote: true%>
 		<%= category.name %>
@@ -11,7 +11,7 @@
 	<div class="shelf collapse in">
 		<div class="borderTop center-block"></div>
 
-		<div class="categorybooks" data-id="<%= category.id %>">
+		<div class="categorybooks">
 			<% category.books.each do |book| %>
 				<%= render book, book: book %>
 			<% end %>
