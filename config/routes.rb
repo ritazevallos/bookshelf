@@ -1,4 +1,9 @@
 Website::Application.routes.draw do
+  get "chapters/new"
+  get "chapters/create"
+  get "chapters/edit"
+  get "chapters/update"
+  get "chapters/destroy"
   root 'static_pages#home'
 
   resources :categories do

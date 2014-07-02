@@ -1,0 +1,12 @@
+<div class="chapters">
+	<% book.chapters.each do |chapter| %>
+		<%= render chapter, chapter: chapter %>
+	<% end %>
+
+	<div class="formNewChapter">
+		<%= form_for([book, book.chapters.build], remote: true ) do |f| %>
+		    <%= f.text_area :content %> <%= f.submit "Add", :class => 'submitButton btn btn-default'%>
+		<% end %>
+	</div>
+		<%= link_to "<i class=\"glyphicon glyphicon-folder-remove\"></i>".html_safe, show_category_book_path(book.category, book), remote: true %>
+</div>

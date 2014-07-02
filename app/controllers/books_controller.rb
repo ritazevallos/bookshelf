@@ -1,4 +1,12 @@
 class BooksController < ApplicationController
+	def show
+	  	@book = Book.find(params[:id])
+		respond_to do |format|
+			format.html
+			format.js
+    	end	
+	end
+
 	def create
 		@category = Category.find(params[:category_id])
 		@book = @category.books.build(book_params)
@@ -38,7 +46,6 @@ class BooksController < ApplicationController
 	end
 
 	def destroy
-		@categories = Category.all
 	    @book = Book.find(params[:id])
 	    respond_to do |format|
 	    	if @book.destroy
@@ -49,11 +56,6 @@ class BooksController < ApplicationController
 	    		format.js
 	    	end
 	    end
-	end
-
-	def index
-		@book = Book.new
-		@books = Book.all
 	end
 
 	private
