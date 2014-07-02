@@ -1,4 +1,4 @@
-var $category = $('div.categorydiv[data-id="<%= @category %>"]');
+var $category = $('div.categorybooks[data-id="<%= @category %>"]');
 $("#errors").html("");
 <% if @category.errors.any? %>
   <% @category.errors.full_messages.each do |message| %>

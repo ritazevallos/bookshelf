@@ -8,6 +8,27 @@ class CategoriesController < ApplicationController
     end
   end
 
+  def edit
+    @category = Category.find(params[:id])
+    respond_to do |format|
+        format.html
+        format.js
+      end
+  end
+
+  def update
+    @category = Category.find(params[:id])
+    respond_to do |format|
+      if @book.update_attributes(category_params)
+        format.html {redirect_to categories_path, notice: 'Category edited.'}
+        format.js
+      else
+        format.html {redirect_to categories_path, notice: 'Error.'}
+        format.js
+      end
+    end
+  end
+
   def new
     @category = Category.new
     respond_to do |format|
