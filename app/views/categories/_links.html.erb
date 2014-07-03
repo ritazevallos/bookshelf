@@ -1,0 +1,7 @@
+<div id="bookshelfLinks">
+	<ul>
+		<% categories.each do |category| %>
+			<li><%= link_to category.name, categories_path(anchor: category.id), class: 'scroll-link' %></li>
+		<% end %>
+	</ul>
+</div>

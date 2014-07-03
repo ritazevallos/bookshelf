@@ -3,8 +3,8 @@
 		<%= link_to "<i class=\"glyphicon glyphicon-pencil\"></i>".html_safe, edit_category_path(category), remote: true%>
 		<%= link_to "<i class=\"glyphicon glyphicon-remove\"></i>".html_safe, category, method: :delete, remote: true%> 
 	</div>
-	<br/>
-	<%= category.name %>
+
+	<%= link_to category.name, {}, {name: category.id} %>
 
 	<a data-toggle="collapse-next" data-target=".shelf" class="collapseButton">
 	<i class="glyphicon glyphicon-chevron-down"></i>

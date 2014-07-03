@@ -17,8 +17,10 @@
 	8. Fix bug with reloading after editing.<br />
 	8. Add a subcategory to books, "Chapters", which includes some good articles or quotes.<br />
 	9. Fix bug with create book.<br /></strike>
-	10. Deal with the possibility that MetaInspector doesn't return a valid page. This is why create was breaking.< br />
-	11. Add in all the non-javascript pages, and add error handling.</br>
+	10. Add category quicklinks on the side.<br />
+	11. Have an up arrow to collapse.<br />
+	10. Deal with the possibility that MetaInspector doesn't return a valid page. This is why create was breaking.<br />
+	11. Add in all the non-javascript pages, and add error handling.<br/>
 	8. Allow the option for non-url adds. Don't allow empty adds.<br />
 	10. Empty the input box after create, or reload category.<br />
 	7. Show when a website has been updated.<br />
@@ -43,6 +45,10 @@ $('body').on('click.collapse-next.data-api', '[data-toggle=collapse-next]', func
     var $target = $(this).parent().next()
     $target.data('bs.collapse') ? $target.collapse('toggle') : $target.collapse()    
 });
+
+$(document).ready(function(){
+	$('#bookshelfSidebar').html("<%= escape_javascript(render 'links', categories: @categories) %>")
+})
 
 $('.formNewBook')
     .on("ajax:beforeSend", function(){

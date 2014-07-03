@@ -7,7 +7,7 @@
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body data-spy="scroll" data-target="#bookshelfLinks">
 <% flash.each do |name, msg| -%>
   <%= content_tag :div, msg, class: name %>
 <% end -%>
@@ -18,21 +18,10 @@
 		</div>
 	</div>
 	<div class="row">
-		<div class="col-md-3 nopadding sidebar-container">
-			<div class="sidebar" data-spy="affix" data-offset-top="80" data-clampedwidth=".col-mid-3">
-				<ul>
-					<li><%= link_to "about", about_path %></li>
-					<li><%= link_to "art", art_path %></li>
-					<li>
-					<%= link_to "coding", coding_path %></li>
-					<li>
-					<%= link_to "writing", writing_path %></li>
-					<li>
-					<%= link_to "bookshelf", bookshelf_path %></li>
-				</ul>
-			</div>
+		<div class="col-md-2 sidebar-container">
+			<%= render 'layouts/sidebar' %>
 		</div>
-		<div class="col-md-8 content nopadding" >
+		<div class="col-md-8 content" >
 			<%= yield %>
 		</div>
 	</div>
