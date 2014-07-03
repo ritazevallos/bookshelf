@@ -59,7 +59,7 @@ class ChaptersController < ApplicationController
 	private
 
 	def chapter_params
-		params.require(:chapter).permit(:content)
+		params.require(:chapter).permit(:content, :link, :type)
 	end
 
 end

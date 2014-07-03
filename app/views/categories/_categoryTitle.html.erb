@@ -1,7 +1,7 @@
 <div class="categoryTitle">
 	<div class="tools">
 		<%= link_to "<i class=\"glyphicon glyphicon-pencil\"></i>".html_safe, edit_category_path(category), remote: true%>
-		<%= link_to "<i class=\"glyphicon glyphicon-remove\"></i>".html_safe, category, method: :delete, remote: true%> 
+		<%= link_to "<i class=\"glyphicon glyphicon-remove\"></i>".html_safe, category, method: :delete, remote: true, data: {confirm: "You sure?"} %> 
 	</div>
 
 	<%= link_to category.name, {}, {name: category.id} %>

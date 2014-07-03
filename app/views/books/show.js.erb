@@ -1,4 +1,6 @@
 var $bookdiv = $('div.book[data-id="<%= @book.id %>"]');
 $chaptersDiv = $bookdiv.find(".chapterList");
 $chaptersDiv.html("<%= escape_javascript(render 'bookChapters', book: @book) %>");
-$chaptersDiv.show();
+$chaptersDiv.show(); // instead, in client-side I can call toggle show from the link. then server fills it with chapters.
+$chevron = $bookdiv.find('.glyphicon-chevron-down');
+$chevron.toggleClass = 'glyphicon-chevron-down glyphicon-chevron-up'; // this would also be client-side
