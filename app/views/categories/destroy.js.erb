@@ -1,13 +1,2 @@
-var $category = $('div.categorybooks[data-id="<%= @category %>"]');
-$("#errors").html("");
-<% if @category.errors.any? %>
-  <% @category.errors.full_messages.each do |message| %>
-
-   $("#errors").append($("<li />").html("<%= message.html_safe %>"))
-  alert('error');
- <% end %>
-<% else %>
-	$category.remove();
-	$('#add_link').show();
-	$('#add_category').hide();
-<% end %>
+var $category = $('div.categorydiv[data-id="<%= @category.id %>"]');
+$category.remove();

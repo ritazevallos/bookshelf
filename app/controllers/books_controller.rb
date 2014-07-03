@@ -10,9 +10,11 @@ class BooksController < ApplicationController
 	def create
 		@category = Category.find(params[:category_id])
 		@book = @category.books.build(book_params)
-		@page = MetaInspector.new(@book.link)
-		@book.title = @page.title.strip
-		@book.description = @page.description.strip
+		@page = MetaInspector.new(@book.link, timeout: 10, html_content_only: true)
+		if @page.ok? #todo: better handling here
+			@book.title = @page.title.strip
+			@book.description = @page.description.strip
+		end
 		respond_to do |format|
 			if @book.save
 	          format.html {redirect_to categories_path, notice: 'Book created.'}

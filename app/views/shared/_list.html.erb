@@ -1,8 +1,9 @@
-
 <ul id="category_list">
 <% categories.each do |category| %>
+
 	<li><div class="categorydiv" data-id="<%= category.id %>">
 		<%= render category, category: category %>
 	</div></li>
+	
 <% end %>
 </ul>
