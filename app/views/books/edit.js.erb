@@ -2,3 +2,4 @@ var $bookdiv = $('div.book[data-id="<%= @book.id %>"]');
 $bookdiv.find('.editform').html("<%= escape_javascript(render 'books/formBookFull', book: @book)%>");
 $bookdiv.find('.editform').show();
 $bookdiv.find('.content').hide();
+$bookdiv.find('.chapters').hide();

@@ -1,0 +1,2 @@
+var $chapter = $('div.chapter[data-id="<%= @chapter.id %>"]');
+$chapter.html("<%= escape_javascript(render 'chapter', chapter: @chapter) %>");

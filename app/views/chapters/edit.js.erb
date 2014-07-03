@@ -1,0 +1,5 @@
+var $chapter = $('div.chapter[data-id="<%= @chapter.id %>"]');
+$chapter.find('.editform').html("<%= escape_javascript(render 'chapterForm', chapter: @chapter)%>");
+$chapter.find('.editform').show();
+$chapter.find('.content').hide();
+$chapter.find('.tools').hide();

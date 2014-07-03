@@ -1,9 +1,9 @@
 class ChaptersController < ApplicationController
 
 	def new
-		@chapter = Chapter.new
+		@book = Book.find(params[:book_id])
 		respond_to do |format|
-		  format.html {redirect_to @categories} #todo redirect to new page
+		  format.html {redirect_to categories_path}
 		  format.js
 		end
 	end
@@ -58,7 +58,7 @@ class ChaptersController < ApplicationController
 
 	private
 
-	def book_params
+	def chapter_params
 		params.require(:chapter).permit(:content)
 	end
 

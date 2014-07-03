@@ -1,0 +1,6 @@
+<%= form_for([chapter.book.category, chapter.book, chapter], remote: true,  ) do |f| %>
+	<div class="form-group">
+    	<%= f.text_area :content, class: 'form-control text_area' %> 
+	</div>
+    <%= f.submit "Save Chapter", class: 'submitButton btn btn-default'%>
+<% end %>

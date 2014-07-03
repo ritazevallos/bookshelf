@@ -1,0 +1,10 @@
+<div class="tools">
+	<%= link_to "<i class=\"glyphicon glyphicon-pencil\"></i>".html_safe, edit_category_book_chapter_path(chapter.book.category, chapter.book, chapter), remote: true %>
+	<%= link_to "<i class=\"glyphicon glyphicon-remove\"></i>".html_safe, [chapter.book.category, chapter.book, chapter], method: :delete, remote: true %>
+</div>
+
+<div class="content">
+	<%= simple_format(chapter.content) %>
+</div>
+
+<div class="editform"></div>

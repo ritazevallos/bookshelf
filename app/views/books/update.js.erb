@@ -7,5 +7,4 @@ $("#errors").html("")
 	<% end %>
 <% else %>
 	$bookdiv.html("<%= escape_javascript(render 'book', book: @book) %>");
-	$bookdiv.find('.editform').hide();
 <% end %>

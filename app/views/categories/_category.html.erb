@@ -1,28 +1,21 @@
-<div class="categorydiv" data-id="<%= category.id %>">
-	<div class="categoryTitle">
-		<%= link_to "<i class=\"glyphicon glyphicon-remove\"></i>".html_safe, category, method: :delete, remote: true%>
-		<%= category.name %>
-		
-		<a data-toggle="collapse-next" data-target=".shelf" class="collapseButton">
-		<i class="glyphicon glyphicon-chevron-down"></i>
-		</a>
+<div class="categoryHeader">
+	<%= render 'categoryTitle', category: category %>
+</div>
+
+<div class="shelf collapse in">
+	<div class="borderTop center-block"></div>
+
+	<div class="categorybooks">
+		<% category.books.each do |book| %>
+			<%= render book, book: book %>
+		<% end %>
 	</div>
 
-	<div class="shelf collapse in">
-		<div class="borderTop center-block"></div>
-
-		<div class="categorybooks">
-			<% category.books.each do |book| %>
-				<%= render book, book: book %>
-			<% end %>
-		</div>
-
-		<div class="formNewBook">
-			<%= form_for([category, category.books.build], remote: true ) do |f| %>
-			    <%= f.url_field :link %> <%= f.submit "Add", :class => 'submitButton btn btn-default'%>
-			<% end %>
-		</div>
-
-		<div class="borderBottom center-block "></div>
+	<div class="formNewBook">
+		<%= form_for([category, category.books.build], remote: true,  ) do |f| %>
+		    <%= f.url_field :link %> <%= f.submit "Add", :class => 'submitButton btn btn-default'%>
+		<% end %>
 	</div>
+
+	<div class="borderBottom center-block "></div>
 </div>

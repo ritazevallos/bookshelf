@@ -1,1 +1,4 @@
-/* todo: here display chapters (maybe with scroll-down animation). also have scrollup link*/
+var $bookdiv = $('div.book[data-id="<%= @book.id %>"]');
+$chaptersDiv = $bookdiv.find(".chapterList");
+$chaptersDiv.html("<%= escape_javascript(render 'bookChapters', book: @book) %>");
+$chaptersDiv.show();

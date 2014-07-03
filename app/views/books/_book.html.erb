@@ -1,15 +1,21 @@
 <div class="book" data-id="<%= book.id %>">
 
-	<p><%= link_to "<i class=\"glyphicon glyphicon-remove\"></i>".html_safe, [book.category, book], remote: true, method: :delete %> 
+	<div class="tools">
+		<%= link_to "<i class=\"glyphicon glyphicon-remove\"></i>".html_safe, [book.category, book], remote: true, method: :delete %> 
 		<%= link_to "<i class=\"glyphicon glyphicon-pencil\"></i>".html_safe, edit_category_book_path(book.category, book), remote: true %>
-		<%= link_to "<i class=\"glyphicon glyphicon-folder-open\"></i>".html_safe, category_book_path(book.category, book), remote: true %>
+		<%= link_to "<i class=\"glyphicon glyphicon-chevron-down\"></i>".html_safe, category_book_path(book.category, book), remote: true %>
+	</div>
 
 	<div class="content">
 		<%= link_to book.title, book.link %> </p>
-		<p><%= book.description %></p>
+		<p><%= simple_format(book.description) %></p>
 	</div>
 
 	<div class="editform" style="display:none"></div>
+	
+	<div class="chapterList" style="display:none"></div>
+
+	<div class="formNewChapter" class:'display:none'></div>
 
 </div>			
 

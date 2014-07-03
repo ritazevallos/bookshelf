@@ -1,0 +1,4 @@
+var $categorydiv = $('div.categorydiv[data-id="<%= @category.id %>"]');
+var $categoryHeader = $categorydiv.find('.categoryHeader');
+
+$categoryHeader.html("<%= escape_javascript(render 'categoryTitle', category: @category) %>")

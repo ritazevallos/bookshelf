@@ -1,0 +1,6 @@
+var $bookdiv = $('div.book[data-id="<%= @book.id %>"]');
+$formNewChapter = $bookdiv.find(".formNewChapter");
+$chapters = $bookdiv.find(".chapters");
+$formNewChapter.html("");
+$formNewChapter.hide();
+$chapters.append("<%= escape_javascript(render 'chapter', chapter: @chapter) %>");
