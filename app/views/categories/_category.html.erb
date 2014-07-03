@@ -12,9 +12,7 @@
 	</div>
 
 	<div class="formNewBook">
-		<%= form_for([category, category.books.build], remote: true,  ) do |f| %>
-		    <%= f.url_field :link %> <%= f.submit "Add", :class => 'submitButton btn btn-default'%>
-		<% end %>
+		<%= render 'shared/formCategoryBook', category: category %>
 	</div>
 
 	<div class="borderBottom center-block "></div>

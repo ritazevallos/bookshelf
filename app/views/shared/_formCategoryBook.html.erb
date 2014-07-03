@@ -1,0 +1,3 @@
+<%= form_for([category, category.books.build], remote: true,  ) do |f| %>
+    <%= f.url_field :link %> <%= f.submit "Add", :class => 'submitButton btn btn-default'%>
+<% end %>

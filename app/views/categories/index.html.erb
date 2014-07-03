@@ -41,4 +41,16 @@ $('body').on('click.collapse-next.data-api', '[data-toggle=collapse-next]', func
     var $target = $(this).parent().next()
     $target.data('bs.collapse') ? $target.collapse('toggle') : $target.collapse()    
 });
+
+$('.formNewBook')
+    .on("ajax:beforeSend", function(){
+        var input = $(this).find('.book-input')
+        input.prop('disabled', true)
+    })
+    .on("ajax:success", function(evt, data, sts){
+        var input = $(this).find('.book-input')
+        input.prop('disabled', false)
+        input.val('')
+    })
+
 </script>
