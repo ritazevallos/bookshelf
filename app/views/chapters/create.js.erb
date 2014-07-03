@@ -3,4 +3,5 @@ $formNewChapter = $bookdiv.find(".formNewChapter");
 $chapters = $bookdiv.find(".chapters");
 $formNewChapter.html("");
 $formNewChapter.hide();
-$chapters.append("<%= escape_javascript(render 'chapter', chapter: @chapter) %>");
+$chapters.append("<div class=\"chapter\"><%= escape_javascript(render 'chapter', chapter: @chapter) %></div>");
+$bookdiv.find(".addChapterLink").show();

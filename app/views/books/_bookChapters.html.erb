@@ -4,6 +4,8 @@
 			<%= render chapter, chapter: chapter %>	
 		</div>
 	<% end %>
+</div>
 
+<div class="addChapterLink">
 	<%= link_to "Add Chapter", new_category_book_chapter_path(book.category, book), class: 'btn btn-default', remote: true %>
 </div>
