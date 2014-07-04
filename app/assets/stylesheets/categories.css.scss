@@ -61,8 +61,19 @@ ul{
 			&:active,&:hover{
 				text-decoration:underline;
 			}
-			font-size:1.2em;
+			font-size:1.3em;
 		}
+		
+		table{
+			width:100%;
+			td{
+				text-align: right;
+			}
+			td:first-child{
+				text-align: left;
+			}
+		}
+
 	}
 
 	.formNewBook{

@@ -12,24 +12,8 @@
 </div>
 
 <script>
-$('body').on('click.collapse-next.data-api', '[data-toggle=collapse-next]', function() {
-    var $target = $(this).parent().next()
-    $target.data('bs.collapse') ? $target.collapse('toggle') : $target.collapse()    
-});
-
 $(document).ready(function(){
 	$('#bookshelfSidebar').html("<%= escape_javascript(render 'links', categories: @categories) %>")
-})
-
-$('.formNewBook')
-    .on("ajax:beforeSend", function(){
-        var input = $(this).find('.book-input')
-        input.prop('disabled', true)
-    })
-    .on("ajax:success", function(evt, data, sts){
-        var input = $(this).find('.book-input')
-        input.prop('disabled', false)
-        input.val('')
-    })
+});
 
 </script>

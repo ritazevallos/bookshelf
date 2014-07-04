@@ -1,6 +1,41 @@
-<%= form_for([book.category, book, chapter], remote: true,  ) do |f| %>
-	<div class="form-group">
-    	<%= f.text_area :content, class: 'form-control text_area' %> 
+<script>
+$('input[type="radio"][data-behavior="toggle-type"]').click(function(evt) {	
+	$formdiv = $(this).closest("div");
+	$link = $formdiv.find(".linkContainer");
+	$text = $formdiv.find(".textContainer");
+	if ($(this).val() == "true"){
+		$link.show();
+		$text.hide();
+	}
+	else if ($(this).val() == "false"){
+		$link.hide();
+		$text.show();
+	}
+});
+
+</script>
+<%= form_for([book.category, book, chapter], remote: true ) do |f| %>
+
+	<div class="form-group linkContainer">
+    	<%= f.url_field :link, class: 'form-control text_area' %> 
 	</div>
-    <%= f.submit "Save Chapter", class: 'submitButton btn btn-default'%>
+
+	<div class="form-group textContainer" style="display:none">
+    	<%= f.text_area :content, rows: 10, class: 'form-control text_area' %> 
+	</div>
+	<table>
+		<tr>
+			<td>
+			    <%= f.radio_button :isLink, true, checked: 'checked', data: {behavior: "toggle-type"} %> 
+			    <%= f.label :isLink, 'Link' %>
+
+			    <%= f.radio_button :isLink, false, data: {behavior: "toggle-type" } %> 
+			    <%= f.label :isLink, 'Text' %>
+			</td>
+			<td>
+				<%= f.submit "Save Chapter", class: 'submitButton btn btn-default' %>
+			</td>
+		</tr>
+	</table>
 <% end %>
+

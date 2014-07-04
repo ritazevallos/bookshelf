@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140703221835) do
+ActiveRecord::Schema.define(version: 20140704221811) do
 
   create_table "books", force: true do |t|
     t.string   "link"
@@ -36,7 +36,8 @@ ActiveRecord::Schema.define(version: 20140703221835) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "link"
-    t.boolean  "type"
+    t.boolean  "isLink"
+    t.string   "title"
   end
 
   add_index "chapters", ["book_id"], name: "index_chapters_on_book_id"

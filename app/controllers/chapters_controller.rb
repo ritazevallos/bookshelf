@@ -11,6 +11,12 @@ class ChaptersController < ApplicationController
 	def create
 		@book = Book.find(params[:book_id])
 		@chapter = @book.chapters.build(chapter_params)
+		if @chapter.isLink == true # if chapter type is a link
+			@page = MetaInspector.new(@chapter.link, timeout: 10) #todo: check that we got a page
+			@chapter.title = @page.title.strip
+			@chapter.content = @page.description.strip
+			# if chapter is not a link, then content would have been set by the form
+		end
 		respond_to do |format|
 			if @chapter.save
 	          format.html {redirect_to categories_path, notice: 'Chapter created.'}
@@ -59,7 +65,7 @@ class ChaptersController < ApplicationController
 	private
 
 	def chapter_params
-		params.require(:chapter).permit(:content, :link, :type)
+		params.require(:chapter).permit(:content, :link, :isLink)
 	end
 
 end

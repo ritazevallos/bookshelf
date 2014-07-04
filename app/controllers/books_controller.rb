@@ -10,7 +10,7 @@ class BooksController < ApplicationController
 	def create
 		@category = Category.find(params[:category_id])
 		@book = @category.books.build(book_params)
-		@page = MetaInspector.new(@book.link, timeout: 10)
+		@page = MetaInspector.new(@book.link, timeout: 10) #todo: check that we got a page
 		@book.title = @page.title.strip
 		@book.description = @page.description.strip
 		respond_to do |format|

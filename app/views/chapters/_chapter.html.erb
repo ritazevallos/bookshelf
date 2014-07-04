@@ -3,6 +3,12 @@
 	<%= link_to "<i class=\"glyphicon glyphicon-remove\"></i>".html_safe, [chapter.book.category, chapter.book, chapter], method: :delete, remote: true, data: {confirm: "You sure?"}  %>
 </div>
 
+<div class="title">
+	<% if chapter.isLink? %>
+		<%= link_to chapter.title, chapter.link %>
+	<% end %>
+</div>
+
 <div class="content">
 	<%= simple_format(chapter.content) %>
 </div>
