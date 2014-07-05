@@ -12,12 +12,12 @@ $('input[type="radio"][data-behavior="toggle-type"]').click(function(evt) {
 		$text.show();
 	}
 });
-
 </script>
+
 <%= form_for([book.category, book, chapter], remote: true ) do |f| %>
 
 	<div class="form-group linkContainer">
-    	<%= f.url_field :link, class: 'form-control text_area' %> 
+    	<%= f.url_field :link, class: 'form-control' %> 
 	</div>
 
 	<div class="form-group textContainer" style="display:none">
