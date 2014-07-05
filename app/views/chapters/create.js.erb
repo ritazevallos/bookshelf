@@ -5,3 +5,6 @@ $formNewChapter.html("");
 $formNewChapter.hide();
 $chapters.append("<div class=\"chapter\"><%= escape_javascript(render 'chapter', chapter: @chapter) %></div>");
 $bookdiv.find(".addChapterLink").show();
+/*temporary fix*/
+$bookdiv.find(".chapterList").html("<%= escape_javascript(render '/books/bookChapters', book: @book) %>");
+/*temporary fix for bug--after create, edit.js.erb is breaking*/
